@@ -1,0 +1,17 @@
+
+
+names = ["edzil", "oseah", "andoy", "shanti", "james", "santiago"]
+           #0       #1       #2        #3       #4         #5.........
+
+#dictionary
+#key, value
+names_d = {"maingay":"edzil", "matahimik":"oseah", "matangkad":"andoy", "nakasalamin":"shanti", "maingay rin":"james", "pogi":"santiago"}
+
+print(names[2])
+
+print(names_d["maingay"])
+
+#traversing a dictionary
+
+for x, y in names_d.items():
+    print("trait is ",x,"-- name is ",y)
