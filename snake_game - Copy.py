@@ -11,8 +11,8 @@ import pygame
 # ============================================================
 GAME_TITLE = "Snake"
 CELL_SIZE = 25           # size of one square, in pixels
-GRID_WIDTH = 24          # how many squares across
-GRID_HEIGHT = 18         # how many squares down
+GRID_WIDTH = 34          # how many squares across
+GRID_HEIGHT = 28         # how many squares down
 SPEED = 8                # moves per second: higher = faster snake
 START_LENGTH = 3         # how long the snake is at the start
 POINTS_PER_FOOD = 1      # score for each food eaten
@@ -22,8 +22,8 @@ WALLS_KILL = True        # False = snake goes through walls to the other side
 # Colors are (red, green, blue), each from 0 to 255
 BACKGROUND_COLOR = (20, 24, 38)
 GRID_COLOR = (32, 38, 56)
-SNAKE_COLOR = (90, 200, 120)
-HEAD_COLOR = (50, 150, 80)
+SNAKE_COLOR = (10, 200, 255)
+HEAD_COLOR = (10, 150, 255)
 FOOD_COLOR = (235, 80, 80)
 TEXT_COLOR = (240, 240, 240)
 
@@ -55,7 +55,7 @@ def new_game():
 
 
 def place_food(snake):
-    """Pick a random empty square for the food."""
+    """Pick a corner square for the food."""
     while True:
         spot = (random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1))
         if spot not in snake:
@@ -83,7 +83,7 @@ def draw_game(snake, food, score):
     for y in range(0, HEIGHT, CELL_SIZE):
         pygame.draw.line(screen, GRID_COLOR, (0, y), (WIDTH, y))
     draw_square(food, FOOD_COLOR)
-    for part in snake[1:]:
+    for part in snake[3:]:
         draw_square(part, SNAKE_COLOR)
     draw_square(snake[0], HEAD_COLOR)
     draw_text("Score: " + str(score), 10)
